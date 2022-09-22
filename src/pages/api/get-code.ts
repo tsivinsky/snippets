@@ -18,7 +18,7 @@ async function getGitHubFileContent(filepath: string) {
 }
 
 const handler: NextApiHandler = async (req, res) => {
-  if (req.method?.toLowerCase() !== "GET") {
+  if (req.method !== "GET") {
     return res.status(405).json({ content: null });
   }
 
