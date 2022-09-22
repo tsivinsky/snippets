@@ -1,6 +1,7 @@
 import React from "react";
 
 import { AppProps } from "next/app";
+import Head from "next/head";
 
 import "@/styles/app.css";
 import { Toaster } from "react-hot-toast";
@@ -17,6 +18,10 @@ function App({ Component, pageProps }: MyAppProps) {
 
   return (
     <Layout>
+      <Head>
+        <title>UI Kit</title>
+      </Head>
+
       <Toaster />
       {getLayout(<Component {...pageProps} />)}
     </Layout>
