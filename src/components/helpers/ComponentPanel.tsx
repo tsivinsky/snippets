@@ -33,7 +33,7 @@ export const ComponentPanel: React.FC<ComponentPanelProps> = ({
     <div className="p-3 border rounded-md">
       <h2 className="text-xl mb-2">{clearComponentName}</h2>
 
-      <div className="flex gap-2">
+      <div className="flex flex-col md:flex-row items-start gap-2">
         <Button onClick={() => handleCopy()}>Скопировать код компонента</Button>
         <Button as="a" href={docsUrl} target="_blank" rel="noopener noreferrer">
           Ссылка на доку
