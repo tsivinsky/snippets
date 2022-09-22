@@ -15,15 +15,12 @@ export const ComponentPanel: React.FC<ComponentPanelProps> = ({
   component,
 }) => {
   const handleCopy = async () => {
-    try {
-      await copyComponentCode(component);
-
-      toast.success("Код скопирован успешно");
-    } catch (err) {
-      if (err instanceof Error) {
-        toast.error(err.message);
-      }
-    }
+    toast.promise(copyComponentCode(component), {
+      loading: "Делаем запросы...",
+      error: (err) =>
+        err instanceof Error ? err.message : "Ой, ошибочка вышла",
+      success: "Код успешно скопирован",
+    });
   };
 
   const clearComponentName = component.split(".")[0];
