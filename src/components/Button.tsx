@@ -8,8 +8,20 @@ import type {
 
 export const ButtonDefaultElement = "button";
 
+const variantClasses = {};
+const colorClasses = {};
+const sizeClasses = {};
+
+export type ButtonVariant = keyof typeof variantClasses;
+export type ButtonColor = keyof typeof colorClasses;
+export type ButtonSize = keyof typeof sizeClasses;
+
 // NOTE: Добавляй кастомные пропсы для кнопки сюда
-export type ButtonOwnProps = {};
+export type ButtonOwnProps = {
+  variant?: ButtonVariant;
+  color?: ButtonColor;
+  size?: ButtonSize;
+};
 
 export type ButtonProps<
   E extends React.ElementType = typeof ButtonDefaultElement
