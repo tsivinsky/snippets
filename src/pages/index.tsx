@@ -1,6 +1,7 @@
 import toast from "react-hot-toast";
 
 import { copyComponentCode } from "@/utils/copyComponentCode";
+import { getComponentDocsUrl } from "@/utils/getComponentDocsUrl";
 
 import { Button } from "@/components/Button";
 import { PrimaryLayout } from "@/layouts/PrimaryLayout";
@@ -33,9 +34,19 @@ const HomePage: Page = () => {
       <div className="p-3 border rounded-md">
         <h2 className="text-xl mb-2">Button</h2>
 
-        <Button onClick={() => handleCopy("Button.tsx")}>
-          Copy button code
-        </Button>
+        <div className="flex gap-2">
+          <Button onClick={() => handleCopy("Button.tsx")}>
+            Скопировать код компонента
+          </Button>
+          <Button
+            as="a"
+            href={getComponentDocsUrl("Button")}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ссылка на доку
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import { NextApiHandler } from "next";
 
-const REPO_NAME = "tsivinsky/ui";
-const BRANCH_NAME = "master";
+import { BRANCH_NAME, COMPONENTS_DIR, REPO_NAME } from "@/lib/constants";
 
 type HandlerQueryParams = {
   component?: string | string[];
@@ -33,7 +32,7 @@ const handler: NextApiHandler = async (req, res) => {
 
   component = decodeURIComponent(component);
 
-  const fullUrl = `src/components/${component}`;
+  const fullUrl = `${COMPONENTS_DIR}/${component}`;
   const content = await getGitHubFileContent(fullUrl);
 
   return res.status(200).json({
