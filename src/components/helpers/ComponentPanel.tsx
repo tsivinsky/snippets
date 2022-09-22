@@ -18,7 +18,7 @@ export const ComponentPanel: React.FC<ComponentPanelProps> = ({
     try {
       await copyComponentCode(component);
 
-      toast.success("Code copied successfully");
+      toast.success("Код скопирован успешно");
     } catch (err) {
       if (err instanceof Error) {
         toast.error(err.message);
