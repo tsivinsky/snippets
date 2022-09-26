@@ -3,3 +3,4 @@ export const BRANCH_NAME = "master";
 
 export const BASE_DIR = "src/stuff";
 export const COMPONENTS_DIR = `${BASE_DIR}/components`;
+export const UTILS_DIR = `${BASE_DIR}/utils`;

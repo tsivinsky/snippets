@@ -1,18 +1,22 @@
 import { GetStaticProps } from "next";
 
 import { getAllComponents } from "@/api/getAllComponents";
+import { getAllUtils } from "@/api/getAllUtils";
 
 import { ComponentPanel } from "@/components/ComponentPanel";
+import { UtilPanel } from "@/components/UtilPanel";
 import { PrimaryLayout } from "@/layouts/PrimaryLayout";
 
 import { Component } from "@/types/Component";
 import { Page } from "@/types/Page";
+import { Util } from "@/types/Util";
 
 type HomePageProps = {
   components: Component[];
+  utils: Util[];
 };
 
-const HomePage: Page<HomePageProps> = ({ components }) => {
+const HomePage: Page<HomePageProps> = ({ components, utils }) => {
   return (
     <div>
       <div className="mb-2">
@@ -24,11 +28,19 @@ const HomePage: Page<HomePageProps> = ({ components }) => {
         </p>
       </div>
 
-      <div>
-        <h2 className="text-2xl font-semibold">Components</h2>
-        {components.map((component) => (
-          <ComponentPanel key={component.name} component={component} />
-        ))}
+      <div className="flex flex-col gap-8">
+        <div>
+          <h2 className="text-2xl font-semibold">Components</h2>
+          {components.map((component) => (
+            <ComponentPanel key={component.name} component={component} />
+          ))}
+        </div>
+        <div>
+          <h2 className="text-2xl font-semibold">Utils</h2>
+          {utils.map((util) => (
+            <UtilPanel key={util.name} util={util} />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -38,10 +50,12 @@ HomePage.getLayout = (page) => <PrimaryLayout>{page}</PrimaryLayout>;
 
 export const getStaticProps: GetStaticProps = async () => {
   const components = await getAllComponents();
+  const utils = await getAllUtils();
 
   return {
     props: {
       components,
+      utils,
     },
   };
 };
