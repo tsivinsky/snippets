@@ -19,7 +19,7 @@ function App({ Component, pageProps }: MyAppProps) {
   return (
     <Layout>
       <Head>
-        <title>UI Kit</title>
+        <title>Code Snippets w/ Copy button</title>
       </Head>
 
       <Toaster />
