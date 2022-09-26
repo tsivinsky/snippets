@@ -1,5 +1,6 @@
-import { UTILS_DIR } from "@/lib/constants";
 import fs from "node:fs/promises";
+
+import { UTILS_DIR } from "@/lib/constants";
 
 import { Util } from "@/types/Util";
 

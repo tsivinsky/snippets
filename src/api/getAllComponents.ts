@@ -1,5 +1,6 @@
-import { COMPONENTS_DIR } from "@/lib/constants";
 import fs from "node:fs/promises";
+
+import { COMPONENTS_DIR } from "@/lib/constants";
 
 import { Component } from "@/types/Component";
 
