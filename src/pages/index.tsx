@@ -49,8 +49,10 @@ const HomePage: Page<HomePageProps> = ({ components, utils }) => {
 HomePage.getLayout = (page) => <PrimaryLayout>{page}</PrimaryLayout>;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const components = await getAllComponents();
-  const utils = await getAllUtils();
+  const [components, utils] = await Promise.all([
+    getAllComponents(),
+    getAllUtils(),
+  ]);
 
   return {
     props: {
