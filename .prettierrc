@@ -9,6 +9,7 @@
   "trailingComma": "es5",
   "bracketSpacing": true,
   "importOrder": [
+    "^node:(.*)$",
     "^(react)(/(.*))?$",
     "^(next)(/(.*))?$",
     "<THIRD_PARTY_MODULES>",
